@@ -67,8 +67,8 @@ Dashboard
 
 
 {{-- DATA ALAT --}}
-<a href="#"
-class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700">
+<a href="{{ route("laboran.alat.index") }}"
+class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.alat*') ? 'bg-blue-700' : 'hover:bg-blue-700' }}">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
@@ -240,5 +240,8 @@ overlay.classList.toggle('hidden')
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
+
 </html>
