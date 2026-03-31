@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('lokasi')->nullable();
             $table->string('kondisi')->default('baik');
     	    $table->string('gambar')->nullable();
-            $table->string('qr_code')->nullable();
+            $table->string('barcode')->nullable(); // barcode alat
             $table->text('deskripsi')->nullable();
+            $table->text('tutorial_penggunaan')->nullable();    
             $table->timestamps();
         });
     }

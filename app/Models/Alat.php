@@ -17,9 +17,10 @@ class Alat extends Model
         'stok',
         'lokasi',
         'kondisi',
-	'gambar',
+	    'gambar',
         'qr_code',
-        'deskripsi'
+        'deskripsi',
+        'tutorial_penggunaan'
     ];
 
     public function peminjaman()

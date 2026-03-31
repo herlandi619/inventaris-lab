@@ -11,16 +11,28 @@ class AlatSeeder extends Seeder
     {
         for ($i = 1; $i <= 15; $i++) {
 
+            $kode = 'LAB00'.$i;
+
             Alat::create([
-                'kode_alat' => 'LAB00'.$i,
+                'kode_alat' => $kode,
                 'nama_alat' => 'Alat Laboratorium '.$i,
                 'kategori' => 'Farmasi',
                 'stok' => rand(1,10),
                 'lokasi' => 'Lab Farmasi',
                 'kondisi' => 'baik',
                 'gambar' => null,
-                'qr_code' => null,
-                'deskripsi' => 'Deskripsi alat laboratorium '.$i
+
+                // barcode biasanya sama dengan kode alat
+                'barcode' => $kode,
+
+                'deskripsi' => 'Deskripsi alat laboratorium '.$i,
+
+                'tutorial_penggunaan' => 
+                "1. Periksa kondisi alat sebelum digunakan.\n".
+                "2. Pastikan alat terhubung dengan sumber daya.\n".
+                "3. Gunakan alat sesuai petunjuk praktikum.\n".
+                "4. Setelah selesai gunakan, bersihkan alat.\n".
+                "5. Kembalikan alat ke tempat semula."
             ]);
 
         }
