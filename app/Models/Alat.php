@@ -18,7 +18,7 @@ class Alat extends Model
         'lokasi',
         'kondisi',
 	    'gambar',
-        'qr_code',
+        'barcode',
         'deskripsi',
         'tutorial_penggunaan'
     ];
