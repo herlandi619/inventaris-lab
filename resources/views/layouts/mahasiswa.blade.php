@@ -43,7 +43,7 @@ Laboratorium Farmasi
 <nav class="p-4 space-y-2">
 
 {{-- DASHBOARD --}}
-<a href="{{ route('laboran.dashboard') }}"
+<a href="#"
 class="flex items-center gap-3 px-4 py-2 rounded
 {{ request()->routeIs('laboran.dashboard*') ? 'bg-blue-700' : 'hover:bg-blue-700' }}">
 
@@ -66,72 +66,6 @@ Dashboard
 </a>
 
 
-{{-- DATA ALAT --}}
-<a href="{{ route("laboran.alat.index") }}"
-class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.alat*') ? 'bg-blue-700' : 'hover:bg-blue-700' }}">
-
-<svg xmlns="http://www.w3.org/2000/svg"
-fill="none"
-viewBox="0 0 24 24"
-stroke-width="1.5"
-stroke="currentColor"
-class="w-5 h-5">
-
-<path stroke-linecap="round"
-stroke-linejoin="round"
-d="M6 6h12M6 12h12M6 18h12"/>
-
-</svg>
-
-Data Alat
-
-</a>
-
-
-
-
-
-{{-- MAHASISWA --}}
-<a href="{{ route("laboran.mahasiswa.index") }}"
-class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.mahasiswa*') ? 'bg-blue-700' : 'hover:bg-blue-700' }}">
-
-<svg xmlns="http://www.w3.org/2000/svg"
-fill="none"
-viewBox="0 0 24 24"
-stroke-width="1.5"
-stroke="currentColor"
-class="w-5 h-5">
-
-<path stroke-linecap="round"
-stroke-linejoin="round"
-d="M15 19a4 4 0 10-6 0m6 0H9m6 0h3m-9 0H6m6-9a4 4 0 100-8 4 4 0 000 8z"/>
-
-</svg>
-
-Kelola Akun
-
-</a>
-
-{{-- PEMINJAMAN --}}
-<a href="#"
-class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700">
-
-<svg xmlns="http://www.w3.org/2000/svg"
-fill="none"
-viewBox="0 0 24 24"
-stroke-width="1.5"
-stroke="currentColor"
-class="w-5 h-5">
-
-<path stroke-linecap="round"
-stroke-linejoin="round"
-d="M8 7V3m8 4V3m-9 8h10m-12 9h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"/>
-
-</svg>
-
-Peminjaman
-
-</a>
 
 
 
