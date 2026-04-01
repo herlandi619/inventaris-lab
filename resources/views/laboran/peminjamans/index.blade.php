@@ -54,7 +54,7 @@ Cari
 <td class="p-3 whitespace-nowrap">{{ $p->tanggal_kembali }}</td>
 
 <td class="p-3">
-<span class="px-2 py-1 text-white rounded
+<span class="px-2 py-1 text-dark rounded
 @if($p->status=='menunggu') bg-yellow-500
 @elseif($p->status=='disetujui') bg-blue-500
 @elseif($p->status=='ditolak') bg-red-500

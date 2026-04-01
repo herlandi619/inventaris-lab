@@ -134,6 +134,28 @@ Peminjaman
 </a>
 
 
+{{-- PENGEMBALIAN --}}
+<a href="{{ route('laboran.pengembalian.index') }}"
+class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.pengembalian*') ? 'bg-blue-700' : '' }}">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.5"
+stroke="currentColor"
+class="w-5 h-5">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+d="M9 15l-6-6m0 0l6-6M3 9h12a6 6 0 010 12h-3"/>
+
+</svg>
+
+Pengembalian
+
+</a>
+
+
 
 </nav>
 

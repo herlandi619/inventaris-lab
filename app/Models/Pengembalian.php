@@ -10,12 +10,14 @@ class Pengembalian extends Model
     /** @use HasFactory<\Database\Factories\PengembalianFactory> */
     use HasFactory;
 
-    protected $fillable = [
-        'peminjaman_id',
-        'tanggal_dikembalikan',
-        'kondisi_setelah',
-        'catatan'
-    ];
+    // protected $fillable = [
+    //     'peminjaman_id',
+    //     'tanggal_dikembalikan',
+    //     'kondisi_setelah',
+    //     'catatan'
+    // ];
+
+    protected $guarded = [];
 
     public function peminjaman()
     {

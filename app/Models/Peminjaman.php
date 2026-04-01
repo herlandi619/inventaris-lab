@@ -12,13 +12,15 @@ class Peminjaman extends Model
 
     protected $table = 'peminjamans';
 
-    protected $fillable = [
-        'mahasiswa_id',
-        'alat_id',
-        'tanggal_pinjam',
-        'tanggal_kembali',
-        'status'
-    ];
+    protected $guarded = [];
+
+    // protected $fillable = [
+    //     'mahasiswa_id',
+    //     'alat_id',
+    //     'tanggal_pinjam',
+    //     'tanggal_kembali',
+    //     'status'
+    // ];
 
     public function mahasiswa()
     {

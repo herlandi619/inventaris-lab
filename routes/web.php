@@ -5,6 +5,7 @@ use App\Http\Controllers\Laboran\DashboardLaboranController;
 use App\Http\Controllers\Laboran\MahasiswaController;
 use App\Http\Controllers\Laboran\PeminjamanController;
 use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,15 @@ Route::prefix('laboran')
     Route::post('/peminjaman/{id}/tolak',[PeminjamanController::class,'tolak'])->name('peminjaman.tolak');
 
     Route::post('/peminjaman/{id}/dipinjam',[PeminjamanController::class,'dipinjam'])->name('peminjaman.dipinjam');
+
+
+    // PENGEMBALIAN ALAT
+    Route::get('/pengembalian', [PengembalianController::class,'index'])->name('pengembalian.index');
+    
+    Route::get('/pengembalian/create/{peminjaman}', [PengembalianController::class,'create'])->name('pengembalian.create');
+    
+    Route::post('/pengembalian', [PengembalianController::class,'store'])->name('pengembalian.store');
+
 
 });
 
