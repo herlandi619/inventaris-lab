@@ -3,6 +3,7 @@
 use App\Http\Controllers\Laboran\AlatController;
 use App\Http\Controllers\Laboran\DashboardLaboranController;
 use App\Http\Controllers\Laboran\MahasiswaController;
+use App\Http\Controllers\Laboran\PeminjamanController;
 use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,15 @@ Route::prefix('laboran')
 
     Route::patch('/mahasiswa/{id}/nonaktifkan',[MahasiswaController::class,'nonaktifkan'])->name('mahasiswa.nonaktifkan');
 
+
+    // PEMINJAMAN ALAT
+    Route::get('/peminjaman',[PeminjamanController::class,'index'])->name('peminjaman.index');
+
+    Route::post('/peminjaman/{id}/setujui',[PeminjamanController::class,'setujui'])->name('peminjaman.setujui');
+
+    Route::post('/peminjaman/{id}/tolak',[PeminjamanController::class,'tolak'])->name('peminjaman.tolak');
+
+    Route::post('/peminjaman/{id}/dipinjam',[PeminjamanController::class,'dipinjam'])->name('peminjaman.dipinjam');
 
 });
 

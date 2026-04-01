@@ -113,8 +113,8 @@ Kelola Akun
 </a>
 
 {{-- PEMINJAMAN --}}
-<a href="#"
-class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700">
+<a href="{{ route("laboran.peminjaman.index") }}"
+class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.peminjaman*') ? 'bg-blue-700' : 'hover:bg-blue-700' }}">
 
 <svg xmlns="http://www.w3.org/2000/svg"
 fill="none"
