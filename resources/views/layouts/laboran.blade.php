@@ -228,6 +228,61 @@ Pengembalian
 
 {{-- LAPORAN END --}}
 
+{{-- GARIS PEMISAH --}}
+<div class="border-t border-gray-300"></div>
+
+{{-- Profile & Logout START --}}
+{{-- PROFILE --}}
+<a href="{{ route('profile.edit') }}"
+class="flex items-center gap-3 px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('profile.*') ? 'bg-blue-700' : '' }}">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.5"
+stroke="currentColor"
+class="w-5 h-5">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0"/>
+
+</svg>
+
+<span>Profile</span>
+
+</a>
+
+{{-- LOGOUT --}}
+<form method="POST" action="{{ route('logout') }}">
+
+@csrf
+
+<button
+class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-red-600 hover:text-white">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.5"
+stroke="currentColor"
+class="w-5 h-5">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-7.5A2.25 2.25 0 003.75 5.25v13.5A2.25 2.25 0 006 21h7.5a2.25 2.25 0 002.25-2.25V15m3-3l-3-3m3 3l-3 3m3-3H9"/>
+
+</svg>
+
+<span>Logout</span>
+
+</button>
+
+</form>
+
+
+{{-- Profile & Logout END --}}
+
 
 </nav>
 
@@ -281,21 +336,50 @@ Pengembalian
 </summary>
 
 
-<div class="absolute right-0 mt-2 w-40 bg-white rounded shadow-lg border">
+<div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border overflow-hidden">
 
+{{-- PROFILE --}}
 <a href="{{ route('profile.edit') }}"
-class="block px-4 py-2 hover:bg-gray-100">
+class="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 text-gray-700">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.5"
+stroke="currentColor"
+class="w-5 h-5">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0"/>
+
+</svg>
 
 Profile
 
 </a>
 
+
+{{-- LOGOUT --}}
 <form method="POST" action="{{ route('logout') }}">
 
 @csrf
 
 <button
-class="w-full text-left px-4 py-2 hover:bg-gray-100">
+class="w-full flex items-center gap-3 px-4 py-2 hover:bg-gray-100 text-gray-700">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.5"
+stroke="currentColor"
+class="w-5 h-5">
+
+<path stroke-linecap="round"
+stroke-linejoin="round"
+d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-7.5A2.25 2.25 0 003.75 5.25v13.5A2.25 2.25 0 006 21h7.5a2.25 2.25 0 002.25-2.25V15m3-3l-3-3m3 3l-3 3m3-3H9"/>
+
+</svg>
 
 Logout
 
