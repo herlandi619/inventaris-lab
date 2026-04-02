@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Laboran\AlatController;
 use App\Http\Controllers\Laboran\DashboardLaboranController;
+use App\Http\Controllers\Laboran\LaporanController;
 use App\Http\Controllers\Laboran\MahasiswaController;
 use App\Http\Controllers\Laboran\PeminjamanController;
 use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
@@ -94,6 +95,25 @@ Route::prefix('laboran')
     
     Route::post('/pengembalian', [PengembalianController::class,'store'])->name('pengembalian.store');
 
+
+    // LAPORAN
+    Route::get('/alat',[LaporanController::class,'alat'])
+        ->name('laporan.alat');
+
+    Route::get('/alat/export',[LaporanController::class,'exportAlat'])
+        ->name('laporan.alat.export');
+
+    Route::get('/laporanpeminjaman',[LaporanController::class,'peminjaman'])
+        ->name('laporan.peminjaman');
+
+    Route::get('/laporanpeminjaman/export',[LaporanController::class,'exportPeminjaman'])
+        ->name('laporan.peminjaman.export');
+
+    Route::get('/laporanpengembalian',[LaporanController::class,'pengembalian'])
+        ->name('laporan.pengembalian');
+
+    Route::get('/laporanpengembalian/export',[LaporanController::class,'exportPengembalian'])
+        ->name('laporan.pengembalian.export');
 
 });
 

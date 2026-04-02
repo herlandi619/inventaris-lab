@@ -156,6 +156,78 @@ Pengembalian
 </a>
 
 
+{{-- LAPORAN START--}}
+{{-- Dropdown Laporan --}}
+<div x-data="{ open: false }">
+
+    <button @click="open = !open"
+    class="flex items-center justify-between w-full px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.laporan*') ? 'bg-blue-700' : '' }}">
+
+        <div class="flex items-center gap-3">
+
+            {{-- ICON LAPORAN --}}
+            <svg xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5">
+
+            <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 17v-6m3 6V7m3 10v-4M6 21h12a2 2 0 002-2V5a2 2 0 00-2-2H8l-4 4v12a2 2 0 002 2z"/>
+
+            </svg>
+
+            <span>Laporan</span>
+
+        </div>
+
+        {{-- ICON PANAH --}}
+        <svg xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4 transition-transform"
+        :class="{ 'rotate-180': open }"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+
+        <path stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7" />
+
+        </svg>
+
+    </button>
+
+
+    {{-- Isi Dropdown --}}
+    <div x-show="open" x-transition class="ml-8 mt-2 space-y-2">
+
+        {{-- Laporan Alat --}}
+        <a href="{{ route('laboran.laporan.alat') }}"
+        class="block px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.laporan.alat*') ? 'bg-blue-700' : '' }}">
+        Laporan Alat
+        </a>
+
+        {{-- Laporan Peminjaman --}}
+        <a href="{{ route('laboran.laporan.peminjaman') }}"
+        class="block px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.laporan.peminjaman*') ? 'bg-blue-700' : '' }}">
+        Laporan Peminjaman
+        </a>
+
+        {{-- Laporan Pengembalian --}}
+        <a href="{{ route('laboran.laporan.pengembalian') }}"
+        class="block px-4 py-2 rounded hover:bg-blue-700 {{ request()->routeIs('laboran.laporan.pengembalian*') ? 'bg-blue-700' : '' }}">
+        Laporan Pengembalian
+        </a>
+
+    </div>
+
+</div>
+
+{{-- LAPORAN END --}}
+
 
 </nav>
 
