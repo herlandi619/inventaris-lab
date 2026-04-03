@@ -287,6 +287,17 @@
 
   </nav>
 
+   {{-- SIDEBAR FOOTER --}}
+  <div class="sidebar-footer">
+    <a href="{{ route('profile.edit') }}" class="sidebar-user">
+      <div class="user-avatar-sm">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</div>
+      <div>
+        <div class="user-name-sm">{{ Auth::user()->name }}</div>
+        <div class="user-role-sm">Laboran</div>
+      </div>
+    </a>
+  </div>
+
   <div class="sb-footer">
     <a href="{{ route('profile.edit') }}" class="sb-user">
       <div class="sb-av">{{ strtoupper(substr(Auth::user()->name,0,1)) }}</div>
