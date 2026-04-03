@@ -20,7 +20,7 @@ Dashboard Inventaris Laboratorium Farmasi
         </h3>
 
         <p class="text-3xl font-bold text-blue-600">
-            {{-- {{ $jumlahAlat }} --}}
+            {{ $jumlahAlat }}
         </p>
 
     </div>
@@ -34,7 +34,7 @@ Dashboard Inventaris Laboratorium Farmasi
         </h3>
 
         <p class="text-3xl font-bold text-red-500">
-            {{-- {{ $alatDipinjam }} --}}
+            {{ $alatDipinjam }}
         </p>
 
     </div>
@@ -48,7 +48,7 @@ Dashboard Inventaris Laboratorium Farmasi
         </h3>
 
         <p class="text-3xl font-bold text-green-600">
-            {{-- {{ $alatTersedia }} --}}
+            {{ $alatTersedia }}
         </p>
 
     </div>
@@ -62,7 +62,7 @@ Dashboard Inventaris Laboratorium Farmasi
         </h3>
 
         <p class="text-3xl font-bold text-purple-600">
-            {{-- {{ $jumlahMahasiswa }} --}}
+            {{ $jumlahMahasiswa }}
         </p>
 
     </div>

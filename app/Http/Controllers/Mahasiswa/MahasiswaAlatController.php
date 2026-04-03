@@ -19,7 +19,7 @@ class MahasiswaAlatController extends Controller
                   ->orWhere('kode_alat','like',"%$search%")
                   ->orWhere('kategori','like',"%$search%");
 
-        })->paginate(10);
+        })->latest()->paginate(10);
 
         return view('mahasiswa.alat.index',compact('alat','search'));
 

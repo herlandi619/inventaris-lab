@@ -116,7 +116,7 @@ Tambah
 <th class="border px-3 py-2">No</th>
 <th class="border px-3 py-2">Mahasiswa</th>
 <th class="border px-3 py-2">Alat</th>
-<th class="border px-3 py-2">Tanggal</th>
+<th class="border px-3 py-2">Tanggal Pengembalian</th>
 <th class="border px-3 py-2">Kondisi</th>
 <th class="border px-3 py-2">Catatan</th>
 
@@ -128,7 +128,7 @@ Tambah
 
 @foreach($pengembalian as $key => $item)
 
-<tr>
+<tr class="text-center">
 
 <td class="border px-3 py-2">
 {{ $pengembalian->firstItem() + $key }}

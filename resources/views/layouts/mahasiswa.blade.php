@@ -284,10 +284,9 @@
     </a>
 
     <a href="{{ route('mahasiswa.peminjaman.status') }}"
-       class="nav-item {{ request()->routeIs('mahasiswa.peminjaman*') ? 'active' : '' }}">
+      class="nav-item {{ request()->routeIs('mahasiswa.peminjaman*') ? 'active' : '' }}">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-        <path stroke-linecap="round" stroke-linejoin="round" 
-              d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h3.5l1-2h3l1 2H17a2 2 0 012 2v12a2 2 0 01-2 2z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M9 8h6M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/>
       </svg>
       Peminjaman
     </a>
@@ -369,6 +368,14 @@
       </div>
     </div>
   </header>
+
+  {{-- Tombol Scan QR Floating (Mobile) --}}
+  <a href="{{ route('mahasiswa.scan.qr') }}" 
+    class="fixed bottom-5 right-5 z-50 lg:hidden bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h3.586a1 1 0 01.707.293l1.414 1.414A1 1 0 0010.414 5H20a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/>
+      </svg>
+  </a>
 
   <main id="content">
 

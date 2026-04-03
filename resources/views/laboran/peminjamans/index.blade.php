@@ -35,7 +35,7 @@ Cari
 <th class="p-3">Mahasiswa</th>
 <th class="p-3">Alat</th>
 <th class="p-3">Tanggal Pinjam</th>
-<th class="p-3">Tanggal Kembali</th>
+{{-- <th class="p-3">Tanggal Kembali</th> --}}
 <th class="p-3">Status</th>
 <th class="p-3">Aksi</th>
 </tr>
@@ -51,7 +51,7 @@ Cari
 <td class="p-3 whitespace-nowrap">{{ $p->mahasiswa->name }}</td>
 <td class="p-3 whitespace-nowrap">{{ $p->alat->nama_alat }}</td>
 <td class="p-3 whitespace-nowrap">{{ $p->tanggal_pinjam }}</td>
-<td class="p-3 whitespace-nowrap">{{ $p->tanggal_kembali }}</td>
+{{-- <td class="p-3 whitespace-nowrap">{{ $p->tanggal_kembali }}</td> --}}
 
 <td class="p-3">
 <span class="px-2 py-1 text-dark rounded
