@@ -57,7 +57,8 @@
 
                 <div class="bg-gray-50 border rounded-lg p-4 shadow-sm">
 
-                    {!! DNS2D::getBarcodeHTML($alat->kode_alat,'QRCODE',3,3) !!}
+                    {{-- {!! DNS2D::getBarcodeHTML($alat->kode_alat,'QRCODE',3,3) !!} --}}
+                   {!! DNS2D::getBarcodeHTML(route('alat.showByQr', $alat->kode_alat), 'QRCODE', 2, 2) !!}
 
                     <p class="text-xs text-gray-500 mt-2">
                         {{ $alat->kode_alat }}

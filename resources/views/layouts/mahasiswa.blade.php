@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@yield('title') — LabFarma</title>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @vite(['resources/css/app.css','resources/js/app.js'])
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -258,11 +259,28 @@
     <div class="nav-label">Menu</div>
 
     <a href="{{ route('mahasiswa.dashboard') }}"
-       class="nav-item {{ request()->routeIs('laboran.dashboard*') ? 'active' : '' }}">
+       class="nav-item {{ request()->routeIs('mahasiswa.dashboard*') ? 'active' : '' }}">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v18h18M9 17V9m4 8V5m4 12v-6"/>
       </svg>
       Dashboard
+    </a>
+
+    {{-- <a href="{{ route('mahasiswa.scan.qr') }}"
+       class="nav-item {{ request()->routeIs('mahasiswa.dashboard*') ? 'active' : '' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v18h18M9 17V9m4 8V5m4 12v-6"/>
+      </svg>
+      Scan QR
+    </a> --}}
+
+    <a href="{{ route('mahasiswa.alat.index') }}"
+       class="nav-item {{ request()->routeIs('mahasiswa.alat*') || request()->routeIs('mahasiswa.scan*') ? 'active' : '' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" 
+              d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h3.5l1-2h3l1 2H17a2 2 0 012 2v12a2 2 0 01-2 2z" />
+      </svg>
+      Data Alat
     </a>
 
     {{-- Tambah nav-item lain di sini --}}

@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Laboran\AlatController;
 use App\Http\Controllers\Laboran\DashboardLaboranController;
 use App\Http\Controllers\Laboran\LaporanController;
 use App\Http\Controllers\Laboran\MahasiswaController;
 use App\Http\Controllers\Laboran\PeminjamanController;
 use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
+use App\Http\Controllers\Mahasiswa\MahasiswaAlatController;
+use App\Http\Controllers\Mahasiswa\MahasiswaPeminjamanController;
+use App\Http\Controllers\Mahasiswa\MahasiswaScanController;
+use App\Http\Controllers\Mahasiswa\ScanAlatController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +33,7 @@ Route::middleware('auth')->group(function () {
 //  LABORAN
 Route::prefix('laboran')
     ->name('laboran.')
-    ->middleware(['auth'])
+    ->middleware(['auth','role:laboran'])
     ->group(function () {
 
     //  DASHBOARD
@@ -118,18 +123,34 @@ Route::prefix('laboran')
 });
 
 
-//  LABORAN
+//  MAHASISWA
 Route::prefix('mahasiswa')
     ->name('mahasiswa.')
-    ->middleware(['auth'])
+    ->middleware(['auth','role:mahasiswa'])
     ->group(function () {
 
     //  DASHBOARD
     Route::get('/dashboard',[DashboardMahasiswaController::class,'index'])
         ->name('dashboard');
-   
+
+    // DATA ALAT
+    Route::get('/alatMahasiswa',[MahasiswaAlatController::class,'index'])->name('alat.index');
+
+    Route::get('/alatMahasiswa/{kode}',[MahasiswaAlatController::class,'show'])->name('alat.show');
+    
+    Route::get('/scan', [MahasiswaAlatController::class,'scanQr'])->name('scan.qr');   
+
+
+    // PEMINJAMAN
+    Route::post('/peminjaman', [MahasiswaPeminjamanController::class, 'store'])
+            ->name('peminjaman.store');
 
 });
 
+// global
+
+Route::get('/show/{kode}', [AlatController::class,'showByQr'])
+    ->name('alat.showByQr')
+    ->middleware('auth'); // siapa pun yang login bisa akses
 
 require __DIR__.'/auth.php';

@@ -71,7 +71,9 @@
 
                     <td class="p-3 w-40">
                         <div class="overflow-hidden flex justify-center">
-                            {!! DNS2D::getBarcodeHTML($a->kode_alat,'QRCODE',2,2) !!}
+                            {{-- {!! DNS2D::getBarcodeHTML($a->kode_alat,'QRCODE',2,2) !!} --}}
+                            {!! DNS2D::getBarcodeHTML(route('alat.showByQr', $a->kode_alat),'QRCODE',2,2) !!}
+                 
                         </div>
                     </td>
 

@@ -122,10 +122,27 @@ class AlatController extends Controller
         return view('laboran.alats.show',compact('alat'));
     }
 
+    public function showByQr($kode)
+    {
+        $alat = Alat::where('kode_alat', $kode)->firstOrFail();
+
+        // Pilih view sesuai role
+        if(auth()->user()->role == 'mahasiswa') {
+            return view('mahasiswa.alat.show', compact('alat'));
+        } else {
+            return view('laboran.alats.show', compact('alat'));
+        }
+    }
+
     public function barcode($kode)
     {
         $alat = Alat::where('kode_alat',$kode)->firstOrFail();
 
         return view('laboran.alats.barcode',compact('alat'));
     }
+
+
+
+    
+    
 }
