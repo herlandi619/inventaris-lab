@@ -257,7 +257,7 @@
   <nav class="sb-nav">
     <div class="nav-label">Menu</div>
 
-    <a href="#"
+    <a href="{{ route('mahasiswa.dashboard') }}"
        class="nav-item {{ request()->routeIs('laboran.dashboard*') ? 'active' : '' }}">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v18h18M9 17V9m4 8V5m4 12v-6"/>
