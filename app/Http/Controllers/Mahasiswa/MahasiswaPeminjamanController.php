@@ -29,4 +29,21 @@ class MahasiswaPeminjamanController extends Controller
         return redirect()->route('mahasiswa.alat.index')
                          ->with('success', 'Alat berhasil dipinjam!');
     }
+
+    public function status(Request $request)
+    {
+        $search = $request->input('search');
+
+        $peminjaman = Peminjaman::where('mahasiswa_id', auth()->id())
+                        ->when($search, function($query, $search){
+                            $query->whereHas('alat', function($q) use ($search){
+                                $q->where('nama_alat', 'like', "%$search%");
+                            });
+                        })
+                        ->with('alat','pengembalian')
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(10);
+
+        return view('mahasiswa.peminjaman.status', compact('peminjaman', 'search'));
+    }
 }

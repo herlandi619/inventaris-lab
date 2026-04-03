@@ -145,6 +145,8 @@ Route::prefix('mahasiswa')
     Route::post('/peminjaman', [MahasiswaPeminjamanController::class, 'store'])
             ->name('peminjaman.store');
 
+    Route::get('peminjaman/status', [MahasiswaPeminjamanController::class,'status'])->name('peminjaman.status');
+
 });
 
 // global

@@ -283,6 +283,15 @@
       Data Alat
     </a>
 
+    <a href="{{ route('mahasiswa.peminjaman.status') }}"
+       class="nav-item {{ request()->routeIs('mahasiswa.peminjaman*') ? 'active' : '' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" 
+              d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h3.5l1-2h3l1 2H17a2 2 0 012 2v12a2 2 0 01-2 2z" />
+      </svg>
+      Peminjaman
+    </a>
+
     {{-- Tambah nav-item lain di sini --}}
 
   </nav>
