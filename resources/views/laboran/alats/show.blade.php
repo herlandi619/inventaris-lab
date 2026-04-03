@@ -46,15 +46,25 @@
 
         </div>
 
-        {{-- Barcode --}}
+        {{-- QR Code --}}
         <div class="mt-6 text-center">
 
-            <p class="font-semibold text-gray-700 mb-2">
-                Barcode Alat
+            <p class="font-semibold text-gray-700 mb-3">
+                QR Code Alat
             </p>
 
             <div class="flex justify-center">
-                {!! DNS1D::getBarcodeHTML($alat->kode_alat,'C128') !!}
+
+                <div class="bg-gray-50 border rounded-lg p-4 shadow-sm">
+
+                    {!! DNS2D::getBarcodeHTML($alat->kode_alat,'QRCODE',3,3) !!}
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        {{ $alat->kode_alat }}
+                    </p>
+
+                </div>
+
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.laboran')
 
-@section('title','Barcode Alat')
+@section('title','Qr Code Alat')
 
 @section('content')
 
@@ -10,7 +10,7 @@
 
         {{-- Judul --}}
         <h1 class="text-lg md:text-xl font-bold mb-4 text-gray-700">
-            Barcode Alat
+            QR Code Alat
         </h1>
 
         {{-- Nama alat --}}
@@ -37,7 +37,7 @@
 
             <button onclick="window.print()"
             class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full sm:w-auto">
-                Print Barcode
+                Print Qr Code
             </button>
 
             <a href="{{ url('/laboran/show/'.$alat->kode_alat) }}"

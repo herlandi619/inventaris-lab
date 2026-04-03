@@ -41,7 +41,7 @@
                     <th class="p-3">Nama</th>
                     <th class="p-3">Kategori</th>
                     <th class="p-3">Stok</th>
-                    <th class="p-3">Barcode</th>
+                    <th class="p-3">Qr Code</th>
                     <th class="p-3 text-center">Aksi</th>
                 </tr>
 
@@ -70,8 +70,8 @@
                     </td>
 
                     <td class="p-3 w-40">
-                        <div class="overflow-hidden">
-                            {!! DNS1D::getBarcodeHTML($a->kode_alat,'C128',1,40) !!}
+                        <div class="overflow-hidden flex justify-center">
+                            {!! DNS2D::getBarcodeHTML($a->kode_alat,'QRCODE',2,2) !!}
                         </div>
                     </td>
 
