@@ -519,13 +519,13 @@
            class="nav-child {{ request()->routeIs('laboran.laporan.alat*') ? 'active' : '' }}">
           Laporan Alat
         </a>
-        <a href="{{ route('laboran.laporan.peminjaman') }}"
+        {{-- <a href="{{ route('laboran.laporan.peminjaman') }}"
            class="nav-child {{ request()->routeIs('laboran.laporan.peminjaman*') ? 'active' : '' }}">
           Laporan Peminjaman
-        </a>
+        </a> --}}
         <a href="{{ route('laboran.laporan.pengembalian') }}"
            class="nav-child {{ request()->routeIs('laboran.laporan.pengembalian*') ? 'active' : '' }}">
-          Laporan Pengembalian
+          Peminjaman & Pengembalian
         </a>
       </div>
     </div>

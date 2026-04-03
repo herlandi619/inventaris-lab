@@ -116,22 +116,91 @@ class LaporanController extends Controller
 
     
 
+    // public function pengembalian(Request $request)
+    // {
+
+    //     $query = Pengembalian::with(['peminjaman.mahasiswa','peminjaman.alat']);
+
+    //     // SEARCH
+    //     if($request->search){
+
+    //         $query->whereHas('peminjaman.mahasiswa',function($q) use ($request){
+    //             $q->where('name','like','%'.$request->search.'%');
+    //         })
+    //         ->orWhereHas('peminjaman.alat',function($q) use ($request){
+    //             $q->where('nama_alat','like','%'.$request->search.'%');
+    //         });
+
+    //     }
+
+    //     // FILTER TANGGAL
+    //     if($request->tanggal_mulai){
+    //         $query->whereDate('tanggal_dikembalikan','>=',$request->tanggal_mulai);
+    //     }
+
+    //     if($request->tanggal_selesai){
+    //         $query->whereDate('tanggal_dikembalikan','<=',$request->tanggal_selesai);
+    //     }
+
+    //     $pengembalian = $query->latest()->paginate(10);
+
+    //     return view('laboran.laporans.pengembalians.index',compact('pengembalian'));
+    // }
+
     public function pengembalian(Request $request)
     {
-
         $query = Pengembalian::with(['peminjaman.mahasiswa','peminjaman.alat']);
 
         // SEARCH
         if($request->search){
-
-            $query->whereHas('peminjaman.mahasiswa',function($q) use ($request){
+            $query->whereHas('peminjaman.mahasiswa', function($q) use ($request){
                 $q->where('name','like','%'.$request->search.'%');
             })
-            ->orWhereHas('peminjaman.alat',function($q) use ($request){
+            ->orWhereHas('peminjaman.alat', function($q) use ($request){
                 $q->where('nama_alat','like','%'.$request->search.'%');
             });
-
         }
+
+        // FILTER TANGGAL PENGEMBALIAN
+        if($request->tanggal_mulai){
+            $query->whereDate('tanggal_dikembalikan','>=',$request->tanggal_mulai);
+        }
+
+        if($request->tanggal_selesai){
+            $query->whereDate('tanggal_dikembalikan','<=',$request->tanggal_selesai);
+        }
+
+        // Ambil data dengan relasi, termasuk tanggal_pinjam dan status dari peminjaman
+        $pengembalian = $query->latest()->paginate(10);
+
+        return view('laboran.laporans.pengembalians.index', compact('pengembalian'));
+    }
+
+
+    // public function exportPengembalian(Request $request)
+    // {
+
+    //     $query = Pengembalian::with(['peminjaman.mahasiswa','peminjaman.alat']);
+
+    //     if($request->tanggal_mulai){
+    //         $query->whereDate('tanggal_dikembalikan','>=',$request->tanggal_mulai);
+    //     }
+
+    //     if($request->tanggal_selesai){
+    //         $query->whereDate('tanggal_dikembalikan','<=',$request->tanggal_selesai);
+    //     }
+
+    //     $pengembalian = $query->get();
+
+    //     $pdf = Pdf::loadView('laboran.laporans.pdf.pengembalian',compact('pengembalian'));
+
+    //     return $pdf->download('laporan_pengembalian.pdf');
+
+    // }
+
+    public function exportPengembalian(Request $request)
+    {
+        $query = Pengembalian::with(['peminjaman.mahasiswa','peminjaman.alat']);
 
         // FILTER TANGGAL
         if($request->tanggal_mulai){
@@ -142,30 +211,11 @@ class LaporanController extends Controller
             $query->whereDate('tanggal_dikembalikan','<=',$request->tanggal_selesai);
         }
 
-        $pengembalian = $query->latest()->paginate(10);
-
-        return view('laboran.laporans.pengembalians.index',compact('pengembalian'));
-    }
-
-    public function exportPengembalian(Request $request)
-    {
-
-        $query = Pengembalian::with(['peminjaman.mahasiswa','peminjaman.alat']);
-
-        if($request->tanggal_mulai){
-            $query->whereDate('tanggal_dikembalikan','>=',$request->tanggal_mulai);
-        }
-
-        if($request->tanggal_selesai){
-            $query->whereDate('tanggal_dikembalikan','<=',$request->tanggal_selesai);
-        }
-
         $pengembalian = $query->get();
 
-        $pdf = Pdf::loadView('laboran.laporans.pdf.pengembalian',compact('pengembalian'));
-
-        return $pdf->download('laporan_pengembalian.pdf');
-
+        // MEMASTIKAN DATA TANGGAL PINJAM & STATUS TERSEDIA DI VIEW
+        return Pdf::loadView('laboran.laporans.pdf.pengembalian', compact('pengembalian'))
+                ->download('laporan_pengembalian.pdf');
     }
 
 }
