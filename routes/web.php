@@ -15,13 +15,31 @@ use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('guest');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/', function () {
+
+    if (!auth()->check()) {
+        return view('welcome');
+    }
+
+    if (auth()->user()->role == 'laboran') {
+        return redirect()->route('laboran.dashboard');
+    }
+
+    if (auth()->user()->role == 'mahasiswa') {
+        return redirect()->route('mahasiswa.dashboard');
+    }
+
+    return view('welcome');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -8,11 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+    {{-- @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
         <script src="https://cdn.tailwindcss.com"></script>
-    @endif
+    @endif --}}
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+     
 
     <style>
         body { font-family: 'Poppins', sans-serif; }
