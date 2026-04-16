@@ -14,13 +14,14 @@ class Peminjaman extends Model
 
     protected $guarded = [];
 
-    // protected $fillable = [
-    //     'mahasiswa_id',
-    //     'alat_id',
-    //     'tanggal_pinjam',
-    //     'tanggal_kembali',
-    //     'status'
-    // ];
+    // 🔥 PENTING: kasih tau Laravel ini kolom tanggal
+    protected $casts = [
+        'tanggal_pinjam' => 'date',
+        'tanggal_kembali' => 'date',
+    ];
+
+    
+
 
     public function mahasiswa()
     {

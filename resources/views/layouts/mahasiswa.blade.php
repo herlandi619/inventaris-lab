@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@yield('title') — LabFarma</title>
+<link rel="icon" type="image/png" href="{{ asset('images/logo_stikes.png') }}">
 
 @vite(['resources/css/app.css','resources/js/app.js'])
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -421,5 +422,22 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{-- ALERT PENGEMBALIAN --}}
+@if(isset($lateBorrow) && $lateBorrow)
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Pengembalian Alat!',
+        text: 'Ada alat yang sudah dipinjam lebih dari 7 hari. Segera lakukan pengembalian.',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3b82f6'
+    });
+});
+</script>
+@endif
+
+
 </body>
 </html>

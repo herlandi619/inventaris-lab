@@ -7,29 +7,42 @@ use App\Models\Alat;
 use App\Models\Peminjaman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardMahasiswaController extends Controller
 {
     public function index()
     {
-        // Total alat
         $jumlahAlat = Alat::count();
 
-        // Alat yang sedang dipinjam (status 'dipinjam' atau 'disetujui')
         $alatDipinjam = Peminjaman::whereIn('status', ['dipinjam','disetujui'])->count();
-
-        // Alat tersedia = total alat - alat dipinjam
         $alatTersedia = $jumlahAlat - $alatDipinjam;
-
-        // Total mahasiswa
         $jumlahMahasiswa = User::where('role', 'mahasiswa')->count();
 
-        // Kirim ke view
+        // 🔥 FIX DISINI
+        $peminjamanUser = Peminjaman::where('mahasiswa_id', Auth::id())
+            ->where('status', 'dipinjam')
+            ->get();
+
+        $lateBorrow = false;
+
+        foreach ($peminjamanUser as $item) {
+            $tanggalPinjam = Carbon::parse($item->tanggal_pinjam);
+            $selisihHari = $tanggalPinjam->diffInDays(now());
+
+            if ($selisihHari >= 7) {
+                $lateBorrow = true;
+                break;
+            }
+        }
+
         return view('mahasiswa.dashboard.index', compact(
             'jumlahAlat',
             'alatDipinjam',
             'alatTersedia',
-            'jumlahMahasiswa'
+            'jumlahMahasiswa',
+            'lateBorrow'
         ));
     }
 }
